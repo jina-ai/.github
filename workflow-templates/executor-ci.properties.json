@@ -1,0 +1,13 @@
+{
+    "name": "Executor CI Workflow",
+    "description": "Executor CI workflow template.",
+    "iconName": "example-icon",
+    "categories": [
+        "Python"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
+}
