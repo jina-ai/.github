@@ -1,0 +1,13 @@
+{
+    "name": "Executor CD Workflow",
+    "description": "Executor CD workflow template.",
+    "iconName": "example-icon",
+    "categories": [
+        "Python"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
+}
