@@ -2,84 +2,28 @@ name: CD
 
 on:
   push:
-    branches: 
-    - $default-branch
+    branches:
+      - $default_branch
   workflow_dispatch:
-
+#  pull_request:
+# uncoment the line above to test CD push in a PR
 
 jobs:
-  prep-push-bed:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - id: changed-files
-        uses: jitterbit/get-changed-files@v1
-        continue-on-error: true
-      - id: set-matrix
-        run: bash scripts/get-all-test-paths.sh
-        env:
-          CHANGED_FILES: ${{ steps.changed-files.outputs.all }}
-      - id: debug
-        run: echo ${{ steps.set-matrix.outputs.matrix }}
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-
   push-executors:
-    needs: [prep-push-bed]
     runs-on: ubuntu-latest
-    if: ${{ needs.prep-push-bed.outputs.matrix != '[]' }}
-    container:
-      image: jinaai/jina:master-standard
-      options: "--entrypoint /bin/bash"
-    strategy:
-      fail-fast: false
-      matrix:
-        test-path: ${{fromJson(needs.prep-push-bed.outputs.matrix)}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: debug
-        run: echo ${{ matrix.test-path }}
+        with:
+          fetch-depth: 0
+      - name: Get previous tag
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        with:
+          fallback: ""
       - name: push to Hubble
         run: |
-          bash ./scripts/push.sh ${{ matrix.test-path }}
+          bash ./.github/workflows/scripts/push.sh .
         env:
           token: ${{ secrets.GH_TOKEN }}
-
-  gpu-folders:
-    needs: [push-executors]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - id: changed-files
-        uses: jitterbit/get-changed-files@v1
-        continue-on-error: true
-      - id: set-matrix
-        run: bash scripts/get-gpu-executors.sh
-        env:
-          CHANGED_FILES: ${{ steps.changed-files.outputs.all }}
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-
-  push-gpu-executors:
-    needs: [ gpu-folders ]
-    runs-on: ubuntu-latest
-    if: ${{ needs.gpu-folders.outputs.matrix != '[]' }}
-    container:
-      image: jinaai/jina:master-standard
-      options: "--entrypoint /bin/bash"
-    strategy:
-      fail-fast: false
-      matrix:
-        test-path: ${{fromJson(needs.gpu-folders.outputs.matrix)}}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: debug
-        run: echo ${{ matrix.test-path }}
-      - name: push to Hubble
-        run: |
-          bash ./scripts/push_gpu.sh ${{ matrix.test-path }}
-        env:
-          token: ${{ secrets.GH_TOKEN }}
+          GIT_TAG: ${{ steps.previoustag.outputs.tag }}
