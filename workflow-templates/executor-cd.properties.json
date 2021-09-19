@@ -1,7 +1,7 @@
 {
     "name": "Executor CD Workflow",
     "description": "Executor CD workflow template.",
-    "iconName": "example-icon",
+    "iconName": ".github/jina-corp-logo",
     "categories": [
         "Python"
     ],
