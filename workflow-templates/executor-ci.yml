@@ -23,7 +23,11 @@ jobs:
             | sort -V | tail -1)
           pip install git+https://github.com/jina-ai/jina.git@v${JINA_VERSION}
       - name: Python requirements
-        run: pip install -r tests/requirements.txt
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt ; fi
+          if [ -f tests/requirements.txt ]; then
+            pip install -r tests/requirements.txt ; fi
       - name: Create Dockerfile, if needed
         run: |
           if [[ ! -f "Dockerfile" ]]; then
@@ -32,7 +36,9 @@ jobs:
             sudo chown -R $(id -u ${USER}):$(id -g ${USER}) . ; fi
       - name: Run unit tests
         run: pytest -s -v -m "not gpu"
-      - name: run docker tests
-        run: |
-          bash ./.github/workflows/scripts/test_docker.sh .
+      - id: test_docker
+        name: run docker tests
+        uses: jina-ai/action-hubble-test-docker@v5
+      - run: echo test result ${{ steps.test_docker.outputs.exit_code}}
+        shell: bash
 
