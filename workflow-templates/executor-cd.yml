@@ -22,8 +22,12 @@ jobs:
         with:
           fallback: ""
       - name: push to Hubble
-        run: |
-          bash ./.github/workflows/scripts/push.sh .
+        id: push_exec
+        uses: jina-ai/action-hubble-push@v2
+        with:
+          git_tag: ${{ steps.previoustag.outputs.tag }}
         env:
-          token: ${{ secrets.GH_TOKEN }}
-          GIT_TAG: ${{ steps.previoustag.outputs.tag }}
+          exec_uuid: ${{ secrets.UUID }}
+          exec_secret: ${{ secrets.SECRET }}
+      - run: echo push result ${{ steps.push_exec.outputs.exit_code}}
+        shell: bash
