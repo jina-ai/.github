@@ -2,7 +2,7 @@
     "name": "Executor CI Workflow",
     "description": "Executor CI workflow template.",
     "iconName": "example-icon",
-    "iconName": ".github/jina-corp-logo",
+    "iconName": "jina-corp-logo",
     "categories": [
         "Python"
     ],
