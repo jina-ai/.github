@@ -20,9 +20,12 @@ jobs:
           [[ ! "$GITHUB_REF" =~ refs/tags ]] && exit
           echo "::set-output name=tag::${GITHUB_REF#refs/tags/}"
       - name: push to Hubble
-        run: |
-          echo "push ${{ steps.get_version.outputs.tag }}"
-          bash ./.github/workflows/scripts/push.sh .
+        id: push_exec
+        uses: jina-ai/action-hubble-push@v2
+        with:
+          git_tag: ${{ steps.get_version.outputs.tag }}
         env:
-          token: ${{ secrets.GH_TOKEN }}
-          GIT_TAG: ${{ steps.get_version.outputs.tag }}
+          exec_uuid: ${{ secrets.UUID }}
+          exec_secret: ${{ secrets.SECRET }}
+      - run: echo push result ${{ steps.push_exec.outputs.exit_code}}
+        shell: bash

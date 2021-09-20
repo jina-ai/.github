@@ -1,7 +1,6 @@
 {
     "name": "Executor CI Workflow",
     "description": "Executor CI workflow template.",
-    "iconName": "example-icon",
     "iconName": "jina-corp-logo",
     "categories": [
         "Python"
