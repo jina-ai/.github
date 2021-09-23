@@ -3,7 +3,7 @@ name: CD
 on:
   push:
     branches:
-      - $default_branch
+      - $default-branch
   workflow_dispatch:
 #  pull_request:
 # uncoment the line above to test CD push in a PR
