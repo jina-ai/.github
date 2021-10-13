@@ -1,6 +1,40 @@
 # Jina AI GitHub Workflow Templates
 
-Share the workflow templates from Jina AI
+Call these workflows remotely from your Executor's repo
 
-## Reference:
-- [Sharing workflows with your organization](https://docs.github.com/en/actions/learn-github-actions/sharing-workflows-with-your-organization)
+1. Add your secret as `EXECUTOR_SECRET`
+2. CD:
+
+```yaml
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+  release:
+    types:
+      - created
+  workflow_dispatch:
+  # pull_request:
+
+jobs:
+  call-external:
+    uses: jina-ai/.github/.github/workflows/cd.yml@refactor-make-callable
+    with:
+      event_name: ${{ github.event_name }}
+    secrets:
+      secret: ${{ secrets.EXECUTOR_SECRET }}
+```
+
+3. CI
+
+```yaml
+name: CI
+
+on: [pull_request]
+
+jobs:
+  call-external:
+    uses: jina-ai/.github/.github/workflows/ci.yml@refactor-make-callable
+```

@@ -1,0 +1,90 @@
+name: CI-template
+
+on:
+  workflow_call:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.7"
+      - name: Install latest stable 2.x jina version
+        run: |
+          JINA_VERSION=$(curl -L -s "https://pypi.org/pypi/jina/json" \
+            |  jq  -r '.releases | keys | .[]
+              | select(contains("dev") | not)
+              | select(startswith("2."))' \
+            | sort -V | tail -1)
+          pip install git+https://github.com/jina-ai/jina.git@v${JINA_VERSION}
+      - name: Python requirements
+        run: pip install -r tests/requirements.txt
+      - name: Create Dockerfile, if needed
+        run: |
+          if [[ ! -f "Dockerfile" ]]; then
+            docker run --entrypoint="normalizer" -v "$(pwd):/workspace" \
+            jinahub/hubble-normalizer:latest . --jina-version=2
+            sudo chown -R $(id -u ${USER}):$(id -g ${USER}) . ; fi
+      - name: Run unit tests
+        run: pytest -s -v -m "not gpu"
+      - name: run docker tests
+        run: |
+          set -ex
+
+          test_dir=$1
+          echo testing $test_dir
+          cd $test_dir
+
+          # assume failure
+          local_exit_code=1
+
+          # test docker image actually runs
+          if [[ -f "Dockerfile" ]]; then
+            python -m venv .venv
+            source .venv/bin/activate
+            pip install wheel docker jina
+            if [[ -f "requirements.txt" ]]; then
+              pip install -r requirements.txt
+            fi
+
+            if [[ -f "tests/requirements.txt" ]]; then
+              pip install -r tests/requirements.txt
+            fi
+
+            docker build -t foo .
+            if [[ -f "tests/pre-docker.sh" ]]; then # allow entrypoint for any pre-docker run operations, liek downloading a model to mount
+              bash tests/pre-docker.sh
+            fi
+            if [[ -f "tests/docker_args.txt" ]]; then # allow args to be passed to the `jina pea`
+                ARGS=`cat tests/docker_args.txt`
+              else
+                ARGS=""
+            fi
+            nohup jina pea --uses docker://foo:latest $ARGS > nohup.out 2>&1 &
+            PID=$!
+            sleep 10
+            if ps -p $PID > /dev/null;
+            then
+              kill -9 $PID
+              docker rm -f $(docker ps -a -q)
+              docker rmi foo:latest
+              local_exit_code=0
+            else
+              echo "jina pea --uses docker://foo:latest" could NOT start
+            fi
+            echo ~~~~~~~OUTPUT BELOW~~~~~~~
+            cat nohup.out
+          else
+            echo no Dockerfile, nothing to test
+            local_exit_code=0
+          fi
+
+          echo final exit code = $local_exit_code
+          exit $local_exit_code
+

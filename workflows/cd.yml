@@ -1,0 +1,48 @@
+name: CD-template
+
+on:
+  workflow_call:
+    inputs:
+      event_name:
+        required: true
+        type: string
+    secrets:
+      secret:
+        required: true
+
+jobs:
+  push-executors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+        # the action doesn't work on release events
+      - name: Get previous tag
+        if: ${{ inputs.event_name != 'release' }}
+        id: previous_tag_action
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        with:
+          fallback: ""
+        # this only works for newly released tags
+      - name: Get the version we just released
+        if: ${{ inputs.event_name == 'release' }}
+        id: previous_tag_custom
+        run: |
+          [[ ! "$GITHUB_REF" =~ refs/tags ]] && exit
+          echo "::set-output name=tag::${GITHUB_REF#refs/tags/}"
+      - name: push to Hubble
+        if: ${{ inputs.event_name == 'release' }}
+        id: push_exec_custom
+        uses: jina-ai/action-hubble-push@v3
+        env:
+          git_tag: ${{ steps.previous_tag_custom.outputs.tag }}
+          exec_secret: ${{ secrets.secret }}
+      - name: push to Hubble
+        if: ${{ inputs.event_name != 'release' }}
+        id: push_exec_action
+        uses: jina-ai/action-hubble-push@v3
+        env:
+          git_tag: ${{ steps.previous_tag_action.outputs.tag }}
+          exec_secret: ${{ secrets.secret }}
