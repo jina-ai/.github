@@ -2,7 +2,8 @@
 
   
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-249-orange.svg?style=flat-square)](#contributors-)
+<a href="https://slack.jina.ai"><img src="https://img.shields.io/badge/Slack-2.7k%2B-blueviolet?logo=slack&amp;logoColor=white&style=flat-square"></a>
+ [![All Contributors](https://img.shields.io/badge/all_contributors-249-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
