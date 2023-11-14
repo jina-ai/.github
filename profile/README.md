@@ -1,4 +1,4 @@
-[![](https://github.com/jina-ai/.github/blob/main/profile/jina-ai-multimodal-ai-stack.png?raw=true)](https://jina.ai)
+[![](https://github.com/jina-ai/.github/blob/main/profile/jina-ai-multimodal-stack.png?raw=true)](https://jina.ai)
 
 <a href="https://github.com/jina-ai"><img alt="GitHub Org's stars" src="https://img.shields.io/github/stars/jina-ai?style=social"></a> <a href="https://discord.jina.ai"><img src="https://img.shields.io/discord/1106542220112302130?logo=discord&style=social"></a> <a href="https://www.linkedin.com/company/jinaai"><img src="https://img.shields.io/badge/LinkedIn-7.7k-white?logo=linkedin&style=social" alt="linkedin community"></a> <a href="https://twitter.com/JinaAI_"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/jinaai_?style=social"></a>  <a href="https://www.youtube.com/channel/UC1zsKWBPGWVM3IjAsp2IPdw/"><img alt="YouTube Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UC1zsKWBPGWVM3IjAsp2IPdw?style=social"></a> [![All Contributors](https://img.shields.io/badge/all_contributors-270-orange.svg?style=social)](#contributors-)
  
