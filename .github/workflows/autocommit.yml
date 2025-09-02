@@ -1,17 +1,12 @@
-name: Autocommit
+name: Autocommit (DISABLED)
 
 on:
-  schedule:
-    - cron: "0 23 * * *"
   workflow_dispatch:
 
 
 jobs:
   autocommit:
-    if: |
-      !startsWith(github.event.head_commit.message, 'chore') &&
-      !startsWith(github.event.head_commit.message, 'build: hotfix') &&
-      !endsWith(github.event.head_commit.message, 'reformatted by jina-dev-bot')
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
