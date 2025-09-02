@@ -1,8 +1,6 @@
-# Embeddings, Rerankers and Small Language Models for Better Search
-<a href="https://twitter.com/JinaAI_"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/JinaAI_?style=social"></a>  <a href="https://www.linkedin.com/company/jinaai"><img src="https://img.shields.io/badge/LinkedIn-19k-white?logo=linkedin&style=social" alt="linkedin community"></a> <a href="https://github.com/jina-ai"><img alt="GitHub Org's stars" src="https://img.shields.io/github/stars/jina-ai?style=social"></a> <a href="https://discord.jina.ai"><img src="https://img.shields.io/discord/1106542220112302130?logo=discord&style=social"></a>  
+## Jina AI: Embeddings, Rerankers and Small Language Models for Better Search
 
-
-## ReaderLMs
+### ReaderLMs
 
 - Reader API (2024-04-01) | [API](https://jina.ai/reader)
 - ReaderLM-v2 (2025-01-16) | [HF](https://huggingface.co/jinaai/ReaderLM-v2) | [ArXiv](https://arxiv.org/abs/2503.01151) | [API](https://jina.ai/api-dashboard/reader) | [Blog](https://jina.ai/news/readerlm-v2-frontier-small-language-model-for-html-to-markdown-and-json)
@@ -10,7 +8,7 @@
 - reader-lm-0.5b (2024-08-11) | [HF](https://huggingface.co/jinaai/reader-lm-0.5b) | [Blog](https://jina.ai/news/reader-lm-small-language-models-for-cleaning-and-converting-html-to-markdown)
 
 
-## Embeddings
+### Embeddings
 
 - jina-embeddings-v4 (2025-06-24) | [HF](https://huggingface.co/jinaai/jina-embeddings-v4) | [ArXiv](https://arxiv.org/abs/2506.18902) | [API](https://jina.ai/?sui&model=jina-embeddings-v4) | [Blog](https://jina.ai/news/jina-embeddings-v4-universal-embeddings-for-multimodal-multilingual-retrieval)
 - jina-clip-v2 (2024-11-05) | [HF](https://huggingface.co/jinaai/jina-clip-v2) | [ArXiv](https://arxiv.org/abs/2412.08802) | [API](https://jina.ai/?sui&model=jina-clip-v2) | [Blog](https://jina.ai/news/jina-clip-v2-multilingual-multimodal-embeddings-for-text-and-images/)
@@ -25,7 +23,7 @@
 - jina-embeddings-v2-base-en (2023-10-28) | [HF](https://huggingface.co/jinaai/jina-embeddings-v2-base-en) | [ArXiv](https://arxiv.org/abs/2310.19923) | [API](https://jina.ai/?sui&model=jina-embeddings-v2-base-en) | [Blog](https://jina.ai/news/jina-ai-launches-worlds-first-open-source-8k-text-embedding-rivaling-openai)
 - jina-embedding-b-en-v1 (2023-06-17) | [HF](https://huggingface.co/jinaai/jina-embedding-b-en-v1) | [API](https://jina.ai/?sui&model=jina-embedding-b-en-v1)
 
-## Rerankers
+###  Rerankers
 
 - jina-reranker-m0 (2025-04-08) | [HF](https://huggingface.co/jinaai/jina-reranker-m0) | [API](https://jina.ai/?sui=reranker&model=jina-reranker-m0) | [Blog](https://jina.ai/news/jina-reranker-m0-multilingual-multimodal-document-reranker)
 - jina-reranker-v2-base-multilingual (2024-06-25) | [HF](https://huggingface.co/jinaai/jina-reranker-v2-base-multilingual) | [API](https://jina.ai/?sui=reranker&model=jina-reranker-v2-base-multilingual) | [Blog](https://jina.ai/news/jina-reranker-v2-for-agentic-rag-ultra-fast-multilingual-function-calling-and-code-search)
