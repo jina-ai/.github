@@ -1,4 +1,6 @@
 ## Jina AI: Embeddings, Rerankers and Small Language Models for Better Search
+[Homepage](https://jina.ai) | [Blog](https://jina.ai/news) | [Download Logo](https://jina.ai/logo-Jina-1024.zip) | [GitHub](https://github.com/jina-ai) | [Hugging Face](https://huggingface.co/jinaai) | [X/Twitter](https://x.com/jinaAI_) | [LinkedIn](https://www.linkedin.com/company/jinaai/) | [Discord](https://discord.jina.ai) | [Email](mailto:support@jina.ai) | [AWS](https://aws.amazon.com/marketplace/seller-profile?id=seller-stch2ludm6vgy) | [Azure](https://azuremarketplace.microsoft.com/en-US/marketplace/apps?page=1&search=jina) | [GCP](https://console.cloud.google.com/marketplace/browse?q=jina)
+
 
 ### ReaderLMs
 
@@ -6,7 +8,6 @@
 - ReaderLM-v2 (2025-01-16) | [HF](https://huggingface.co/jinaai/ReaderLM-v2) | [ArXiv](https://arxiv.org/abs/2503.01151) | [API](https://jina.ai/api-dashboard/reader) | [Blog](https://jina.ai/news/readerlm-v2-frontier-small-language-model-for-html-to-markdown-and-json)
 - reader-lm-1.5b (2024-08-11) | [HF](https://huggingface.co/jinaai/reader-lm-1.5b) | [Blog](https://jina.ai/news/reader-lm-small-language-models-for-cleaning-and-converting-html-to-markdown)
 - reader-lm-0.5b (2024-08-11) | [HF](https://huggingface.co/jinaai/reader-lm-0.5b) | [Blog](https://jina.ai/news/reader-lm-small-language-models-for-cleaning-and-converting-html-to-markdown)
-
 
 ### Embeddings
 
@@ -23,11 +24,12 @@
 - jina-embeddings-v2-base-en (2023-10-28) | [HF](https://huggingface.co/jinaai/jina-embeddings-v2-base-en) | [ArXiv](https://arxiv.org/abs/2310.19923) | [API](https://jina.ai/?sui&model=jina-embeddings-v2-base-en) | [Blog](https://jina.ai/news/jina-ai-launches-worlds-first-open-source-8k-text-embedding-rivaling-openai)
 - jina-embedding-b-en-v1 (2023-06-17) | [HF](https://huggingface.co/jinaai/jina-embedding-b-en-v1) | [API](https://jina.ai/?sui&model=jina-embedding-b-en-v1)
 
-###  Rerankers
+### Rerankers
 
 - jina-reranker-m0 (2025-04-08) | [HF](https://huggingface.co/jinaai/jina-reranker-m0) | [API](https://jina.ai/?sui=reranker&model=jina-reranker-m0) | [Blog](https://jina.ai/news/jina-reranker-m0-multilingual-multimodal-document-reranker)
 - jina-reranker-v2-base-multilingual (2024-06-25) | [HF](https://huggingface.co/jinaai/jina-reranker-v2-base-multilingual) | [API](https://jina.ai/?sui=reranker&model=jina-reranker-v2-base-multilingual) | [Blog](https://jina.ai/news/jina-reranker-v2-for-agentic-rag-ultra-fast-multilingual-function-calling-and-code-search)
 - jina-reranker-v1-turbo-en (2024-04-18) | [HF](https://huggingface.co/jinaai/jina-reranker-v1-turbo-en) | [API](https://jina.ai/?sui&model=jina-reranker-v1-turbo-en) | [Blog](https://jina.ai/news/smaller-faster-cheaper-jina-rerankers-turbo-and-tiny)
 - jina-reranker-v1-tiny-en (2024-04-18) | [HF](https://huggingface.co/jinaai/jina-reranker-v1-tiny-en) | [API](https://jina.ai/?sui&model=jina-reranker-v1-tiny-en) | [Blog](https://jina.ai/news/smaller-faster-cheaper-jina-rerankers-turbo-and-tiny)
-- jina-reranker-v1-base-en (2024-02-29) | [HF](https://huggingface.co/jina-ai/jina-reranker-v1-base-en) | [API](https://jina.ai/?sui&model=jina-reranker-v1-base-en) | [Blog](https://jina.ai/news/maximizing-search-relevancy-and-rag-accuracy-with-jina-reranker)
+- jina-reranker-v1-base-en (2024-02-29) | [HF](https://huggingface.co/jina-ai/jina-reranker-v1-base-en) | [API](https://jina.ai/?sui&model=jina-reranker-v1-base-en) | [Blog](https://jina.ai/news/maximizing-search-relevancy-and-rag-accuracy-with-jina-reranker) | [AWS](https://aws.amazon.com/marketplace/pp/prodview-6dmufr42yb2hi)
+
 
