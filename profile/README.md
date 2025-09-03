@@ -1,4 +1,4 @@
-![Jina AI: Embeddings, Rerankers and Small Language Models for Better Search](2.png)
+![Jina AI: Embeddings, Rerankers and Small Language Models for Better Search](https://raw.githubusercontent.com/jina-ai/.github/refs/heads/main/profile/2.png)
 [Homepage](https://jina.ai) | [Blog](https://jina.ai/news) | [Download Logo](https://jina.ai/logo-Jina-1024.zip) | [GitHub](https://github.com/jina-ai) | [Hugging Face](https://huggingface.co/jinaai) | [X/Twitter](https://x.com/jinaAI_) | [LinkedIn](https://www.linkedin.com/company/jinaai/) | [Discord](https://discord.jina.ai) | [Email](mailto:support@jina.ai) | [AWS](https://aws.amazon.com/marketplace/seller-profile?id=seller-stch2ludm6vgy) | [Azure](https://azuremarketplace.microsoft.com/en-US/marketplace/apps?page=1&search=jina) | [GCP](https://console.cloud.google.com/marketplace/browse?q=jina)
 
 
